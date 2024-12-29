@@ -3,6 +3,8 @@
 - Router
 - Heaader
 - Login/Logut form
+- Form validation
+- useref
 
 
 # Features going to build
