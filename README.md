@@ -1,8 +1,11 @@
-# Getting Started with Create React App
+# Getting Started with Vite (changed)
 - configured Tailwind css
+- Router
+- Heaader
+- Login/Logut form
 
-Features going to build
 
+# Features going to build
 Homepage
  - Login/signup page
  - Authentication
