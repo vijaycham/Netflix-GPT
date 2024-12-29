@@ -6,6 +6,7 @@
 - Form validation
 - useref
 - Deployed using firebase - https://netflixgpt-vijaycham.web.app
+- Added user signin and singup logic
 
 
 # Features going to build
