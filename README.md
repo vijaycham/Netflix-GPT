@@ -7,6 +7,7 @@
 - useref
 - Deployed using firebase - https://netflixgpt-vijaycham.web.app
 - Added user signin and singup logic
+- Created redux store with userSlice
 
 
 # Features going to build
