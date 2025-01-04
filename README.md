@@ -8,6 +8,8 @@
 - Deployed using firebase - https://netflixgpt-vijaycham.web.app
 - Added user signin and singup logic
 - Created redux store with userSlice
+- implemented signout
+- Uodated Profie
 
 
 # Features going to build

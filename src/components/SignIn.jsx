@@ -5,27 +5,27 @@ import { auth } from "../utils/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState("signIn");
   const [errorMessage, SetErrorMessage] = useState(null);
-   const navigate = useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
   const handleButtonClick = () => {
-    // if (!isSignIn) {
-    //   console.log(name.current.value)
-    // }
-    const message = checkValidateData(
-      // name.current.value,
-      email.current.value,
-      password.current.value
-    );
+    const emailValue = email.current?.value || "";
+    const passwordValue = password.current?.value || "";
+
+    const message = checkValidateData(emailValue, passwordValue);
     SetErrorMessage(message);
 
     if (message) return;
@@ -39,6 +39,26 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL: "https://avatars.githubusercontent.com/u/104141481?v=4",
+          })
+            .then(() => {
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+              navigate("/browse");
+            })
+            .catch((error) => {
+              // An error occurred
+              // ...
+            });
           console.log(user);
         })
         .catch((error) => {
@@ -56,7 +76,7 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse")
+          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
