@@ -10,6 +10,10 @@
 - Created redux store with userSlice
 - implemented signout
 - Uodated Profie
+- Bug fix
+   - Sign Up, user displayName and profile picture update
+   - if the user is not logged in Redirect /browse to Login page and vice versa
+- Unsubscribe to the onAuthStateChanged callback
 
 
 # Features going to build
