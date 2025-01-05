@@ -14,6 +14,9 @@
    - Sign Up, user displayName and profile picture update
    - if the user is not logged in Redirect /browse to Login page and vice versa
 - Unsubscribe to the onAuthStateChanged callback
+- Added hardcore values to the constats file
+- Register TMDB AP & create an app & get acess token
+- Get Data from TMDB now playing movies list API
 
 
 # Features going to build
