@@ -1,21 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import VideoTitle from "./VideoTitle";
 import VideoBackground from "./VideoBackground";
 
+
 const MainContainer = () => {
+  
+
   const movies = useSelector((store) => store.movies?.nowPlayingMovies);
-  if (!movies) return;
+  const [mainMovie, setMainMovie] = useState(null);
 
-  const mainMovie = movies[0];
- 
+  useEffect(() => {
+    if (movies && movies.length > 0 && !mainMovie) {
+      const randomIndex = Math.floor(Math.random() * movies.length);
+      setMainMovie(movies[randomIndex]); // Lock the random movie
+    }
+  }, [movies]);
 
-  const {original_title , overview, id} = mainMovie;
+  if (!mainMovie) return <div>Loading...</div>;
+
+  const { original_title, overview, id } = mainMovie;
 
   return (
     <div>
-      <VideoTitle title = {original_title} overview = {overview} />
-      <VideoBackground movieId = {id} />
+      <VideoTitle title={original_title} overview={overview} />
+      <VideoBackground movieId={id} />
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { useEffect } from "react";
-import {LOGO} from "../utils/constants";
+import { LOGO } from "../utils/constants";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -13,15 +13,14 @@ const Header = () => {
 
   const handleSignOut = () => {
     signOut(auth)
-      .then(() => {
-      })
+      .then(() => {})
       .catch((error) => {
         navigate("/error");
       });
   };
 
   useEffect(() => {
-   const unsubscribe =  onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName, photoURL } = user;
         dispatch(
@@ -32,27 +31,28 @@ const Header = () => {
             photoURL: photoURL,
           })
         );
-        navigate("/browse")
+        navigate("/browse");
       } else {
         dispatch(removeUser());
-        navigate("/")
+        navigate("/");
       }
     });
 
-     return () => unsubscribe();
+    return () => unsubscribe();
   }, []);
 
   return (
     <div className=" flex absolute px-8 py-2 bg-gradient-to-b from-black w-full z-10 justify-between items-center">
       <div>
         <img
-          className="w-48"
-          src= {LOGO}
+          className="w-48 cursor-pointer"
+          onClick={() => navigate("/")}
+          src={LOGO}
           alt="logo"
         />
       </div>
-      {user && 
-        (<div className="flex p-2 items-center ">
+      {user && (
+        <div className="flex p-2 items-center ">
           <img
             className="w-12 h-12 m-3 rounded-md"
             alt="usericon"
