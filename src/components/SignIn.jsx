@@ -10,14 +10,11 @@ import {
 import { addUser } from "../utils/userSlice";
 import { useDispatch } from "react-redux";
 
-
-
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState("signIn");
   const [errorMessage, SetErrorMessage] = useState(null);
 
   const dispatch = useDispatch();
-  
 
   const name = useRef(null);
   const email = useRef(null);

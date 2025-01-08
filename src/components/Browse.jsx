@@ -8,16 +8,8 @@ const Browse = () => {
   return (
     <div>
       <Header />
-      <MainContainer/>
-      <SecondaryContainer/>
-      {/*
-            MainContainer
-              - videoBackgorund
-              - VideoTitle
-            SecondaryContainer
-              - Movielist *n
-                - cards
-      */}
+      <MainContainer />
+      <SecondaryContainer />
     </div>
   );
 };
