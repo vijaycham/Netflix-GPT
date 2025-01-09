@@ -1,7 +1,10 @@
 {
   "hosting": {
     "public": "dist",
-    "site": "netflixgpt-vijaycham",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
   }
 }
