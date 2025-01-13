@@ -32,6 +32,7 @@
 - Build Movie Card
 - TMDB Image CDN URL
 - Made the browse page amazing with tailwind CSS
+- 
 
 # Features going to build
 

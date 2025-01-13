@@ -41,6 +41,10 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
 
+  const handleGptSearchClick = () => {
+    
+  }
+
   return (
     <div className=" flex absolute px-8 py-2 bg-gradient-to-b from-black w-full z-10 justify-between items-center">
       <div>
@@ -53,6 +57,7 @@ const Header = () => {
       </div>
       {user && (
         <div className="flex p-2 items-center ">
+          <button className="py-2 text-white bg-purple-800 px-4 rounded-lg" onClick={handleGptSearchClick}>GPT Search</button>
           <img
             className="w-12 h-12 m-3 rounded-md"
             alt="usericon"
